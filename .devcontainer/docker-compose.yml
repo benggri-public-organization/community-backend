@@ -1,0 +1,36 @@
+version: "3.8"
+volumes:
+  postgres-data:
+services:
+  app:
+    container_name: community-backend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      POSTGRES_PASSWORD: benggri
+      POSTGRES_USER: benggri
+      POSTGRES_DB: benggri
+      POSTGRES_HOSTNAME: postgresdb
+    volumes:
+      - ../..:/workspaces:cached
+    command: sleep infinity
+    # network_mode: host
+    network_mode: service:postgresdb
+  postgresdb:
+    container_name: postgresdb
+    image: postgres:16.1-bullseye
+    restart: always
+    volumes:
+      - postgres-data:/benggri/postgresql
+    ports:
+      - 5432
+    environment:
+      - POSTGRES_PASSWORD=benggri
+      - POSTGRES_USER=benggri
+      - POSTGRES_DB=benggri
+    # Kafka CDC 를 사용하게되면 필요한 설정
+    # command:
+    #   - "postgres"
+    #   - "-c"
+    #   - "wal_level=logical"

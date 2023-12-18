@@ -1,0 +1,32 @@
+spring:
+  profiles:
+    default: local
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        use_sql_comments: true
+    hibernate:
+      ddl-auto: create-drop # create-drop: drop & create, create: create, update: update
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
+      platform: h2
+  datasource:
+    url: jdbc:postgresql://postgresdb:5432/benggri?useSSL=false
+    username: benggri
+    password: benggri
+logging:
+  level:
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql: trace
+server:
+  port: 8090

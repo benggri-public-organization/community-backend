@@ -1,0 +1,52 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/java-postgres
+{
+  "name": "Benggri Community Backend Spring-boot",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspaces/community-backend",
+  "features": {
+    "ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {
+      "plugins": "",
+      "omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions",
+      "username": "vscode"
+    },
+    "github-cli": "latest"
+  },
+  // "forwardPorts": [8090],
+  "postCreateCommand": "sh .devcontainer/startup.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "eamodio.gitlens",
+        "esbenp.prettier-vscode",
+        "octref.vetur",
+        "Orta.vscode-jest",
+        "ritwickdey.LiveServer",
+        "bradlc.vscode-tailwindcss",
+        "mechatroner.rainbow-csv",
+        "vmware.vscode-boot-dev-pack",
+        "vscjava.vscode-java-pack",
+        "vscjava.vscode-lombok",
+        "vscjava.vscode-gradle",
+        "bierner.markdown-mermaid"
+      ],
+      "settings": {
+        "files.eol": "\n",
+        "editor.tabSize": 4,
+        "editor.renderWhitespace": "all",
+        "typescript.validate.enable": false,
+        "eslint.alwaysShowStatus": true,
+        "editor.formatOnSave": true,
+        "eslint.workingDirectories": [{ "mode": "auto" }],
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": true
+        },
+        "remote.localPortHost": "allInterfaces",
+        "java.format.settings.profile": "GoogleStyle"
+      }
+    }
+  },
+  "remoteUser": "vscode"
+}
