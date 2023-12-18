@@ -45,4 +45,8 @@ public class BoardEntity extends ParentEntity {
 
     @Comment("게시판_설명")
     private String boardDesc;
+
+    @Comment("표시_순서")
+    private Integer sortBy;
+
 }

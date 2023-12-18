@@ -33,6 +33,8 @@ public class QBoardEntity extends EntityPathBase<BoardEntity> {
 
     public final NumberPath<Long> idx = createNumber("idx", Long.class);
 
+    public final NumberPath<Integer> sortBy = createNumber("sortBy", Integer.class);
+
     public QBoardEntity(String variable) {
         super(BoardEntity.class, forVariable(variable));
     }
